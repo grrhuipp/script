@@ -340,11 +340,6 @@ install_docker() {
 
     systemctl enable --now docker
     systemctl restart docker
-    docker rm -f watchtower
-    docker run -d --name watchtower --network=host --restart=always \
-        -e WATCHTOWER_CLEANUP=true -e WATCHTOWER_INTERVAL=300 \
-        -v /var/run/docker.sock:/var/run/docker.sock v2tec/watchtower
-
     cat <<EOF >>/etc/sysctl.d/99-custom.conf
 net.netfilter.nf_conntrack_max = 50000000
 net.netfilter.nf_conntrack_buckets = 12500000

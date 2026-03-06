@@ -190,7 +190,7 @@ net.ipv4.tcp_keepalive_intvl = 15
 net.ipv4.tcp_keepalive_probes = 5
 net.ipv6.conf.all.accept_ra = 2
 net.ipv6.conf.all.autoconf = 1
-vm.swappiness = 40
+vm.swappiness = 100
 EOF
 
     total_memory_kb=$(awk '/MemTotal/ {print $2}' /proc/meminfo)
